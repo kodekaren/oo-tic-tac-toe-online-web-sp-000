@@ -103,10 +103,22 @@ def draw?
     return false
   end
 end
+<<<<<<< HEAD
 
 def over?
   if won? || draw?
     return true
+=======
+end
+
+def turn
+  puts "Please enter 1-9:"
+  input = gets.strip
+  input = input_to_index(user_input)
+  if valid_move?(index,token)
+    move
+    display_board
+>>>>>>> 91b6bf7f721f4399fc611ef5a18de1a6470e9f83
   else
     return false
   end
@@ -126,6 +138,7 @@ def winner
   end
 end
 
+<<<<<<< HEAD
 def play
   until over? == true
     turn
@@ -139,3 +152,24 @@ def play
 end
 
 end
+=======
+def turn_count
+  turn = 0
+  @board.each do |index|
+      if index == "X" || index == "O"
+        turn += 1
+      end
+    end
+    return turn
+  end
+
+  def current_player
+    if turn_count(@board) %2 == 0
+      return "X"
+    else
+      return "O"
+    end
+    return player
+  end
+end
+>>>>>>> 91b6bf7f721f4399fc611ef5a18de1a6470e9f83
